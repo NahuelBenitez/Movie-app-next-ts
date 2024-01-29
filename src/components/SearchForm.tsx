@@ -20,14 +20,14 @@ interface MyFormProps {
 }
 
 export const formSchema = z.object({
-  username: z.string().min(1).max(150),
+  movie: z.string().min(1).max(150),
 });
 
 const MyForm: React.FC<MyFormProps> = ({ onSubmit }) => {
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
     defaultValues: {
-      username: '',
+      movie: '',
     },
   });
 
@@ -36,25 +36,27 @@ const MyForm: React.FC<MyFormProps> = ({ onSubmit }) => {
   };
 
   return (
-    <Form {...form}>
+    <div className="m-4">
+<Form {...form}>
       <form onSubmit={form.handleSubmit(onSubmit, onError)} className="space-y-8">
         <FormField
           control={form.control}
-          name="username"
+          name="movie"
           render={({ field }) => (
             <FormItem>
-              <FormLabel>Username</FormLabel>
+              <FormLabel className='text-white'>Buscar Pelicula</FormLabel>
               <FormControl>
-                <Input placeholder="shacdn" {...field} />
+                <Input placeholder="Ej: Harry Potter" {...field} />
               </FormControl>
-              <FormDescription>This is your public display name.</FormDescription>
               <FormMessage />
             </FormItem>
           )}
         />
-        <Button type="submit">Submit</Button>
+        <Button type="submit" variant={'success'}>Buscar</Button>
       </form>
     </Form>
+    </div>
+    
   );
 };
 
