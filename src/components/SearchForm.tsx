@@ -51,10 +51,10 @@ const MyForm: React.FC<MyFormProps> = ({ onSubmit }) => {
   };
 
   return (
-    <div className="m-4">
+    <div className="py-16 m-4">
       
       <Form {...form}>
-        <form onSubmit={form.handleSubmit(onFormSubmit, onError)} className="space-y-8">
+        <form onSubmit={form.handleSubmit(onFormSubmit, onError)} className="space-y-8 ">
           <FormField
             control={form.control}
             name="movie"
