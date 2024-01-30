@@ -1,6 +1,6 @@
 
 "use client"
-// pages/Home.tsx
+
 import React, { useEffect, useState } from 'react';
 import axios, { AxiosResponse } from 'axios';
 import Navbar from '@/components/Header';
@@ -36,9 +36,9 @@ const Home = () => {
 
         setMovies(response.data.results);
         setLoading(false); // Indica que las películas han sido cargadas
-        console.log('Respuesta de la API:', response.data);
+        //console.log('Respuesta de la API:', response.data);
       } catch (error) {
-        console.error('Error fetching movies:', error);
+        //console.error('Error fetching movies:', error);
         setLoading(false); // Manejar el error y establecer loading a falso
       }
     };

@@ -13,7 +13,7 @@ import {
 } from '@/components/ui/form';
 import { Input } from '@/components/ui/input';
 import { Button } from '@/components/ui/button';
-import { useStore } from '@/utils/storeMovies'; // Importa el store
+import { useStore } from '@/utils/storeMovies'; 
 
 interface MyFormProps {
   onSubmit: SubmitHandler<z.infer<typeof formSchema>>;
@@ -31,18 +31,18 @@ const MyForm: React.FC<MyFormProps> = ({ onSubmit }) => {
     },
   });
 
-  const searchTerm = useStore(state => state.searchTerm); // Mueve la llamada a useStore fuera del Hook de efecto
-  const setSearchTerm = useStore(state => state.setSearchTerm); // Obtiene la función setSearchTerm del store
+  const searchTerm = useStore(state => state.searchTerm); // Mueve la llamada a useStore fuera del useEfect
+  const setSearchTerm = useStore(state => state.setSearchTerm); // Obtiene la funcion setSearchTerm del store
 
   useEffect(() => {
-    // Asegúrate de que estás en el lado del cliente antes de intentar acceder a useStore
+    
     if (typeof window !== 'undefined') {
       form.setValue('movie', searchTerm);
     }
-  }, [searchTerm]); // Agrega searchTerm como dependencia del Hook de efecto
+  }, [searchTerm]); // Agrega searchTerm como dependencia del useEffect
 
   const onFormSubmit: SubmitHandler<z.infer<typeof formSchema>> = (data) => {
-    setSearchTerm(data.movie); // Almacena el término de búsqueda en el store
+    setSearchTerm(data.movie); // Almacena el termino de busqueda en el store
     onSubmit(data);
   };
 

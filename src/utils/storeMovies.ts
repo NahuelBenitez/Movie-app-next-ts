@@ -21,15 +21,15 @@ export const useStore = create<State>(persist(
     searchTerm: '',
     searchResults: [],
     setSearchTerm: (term) => {
-      console.log('Setting searchTerm to', term); // Agrega un console.log aquí
+      //console.log('Setting searchTerm to', term); // Agrega un console.log aquí
       set((state) => ({ ...state, searchTerm: term }));
     },
     setSearchResults: (results) => {
-      console.log('Setting searchResults to', results); // Agrega un console.log aquí
+      //console.log('Setting searchResults to', results); // Agrega un console.log aquí
       set((state) => ({ ...state, searchResults: results }));
     },
   }),
   {
-    name: 'movie-search', // Nombre único para el almacenamiento local
+    name: 'movie-search', // Nombre para el almacenamiento local
   }
 ));

@@ -8,7 +8,7 @@ const queryClient = new QueryClient();
 
 function MyApp({ Component, pageProps }) {
   return (
-    // Proporciona el QueryClient a tu aplicación
+    
     <QueryClientProvider client={queryClient}>
       <Home />
     </QueryClientProvider>
